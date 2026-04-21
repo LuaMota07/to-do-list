@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nova tarefa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+    <ion-card-content>
+
+      <ion-input 
+        placeholder="Digite sua tarefa"
+        [(ngModel)]="title">
+      </ion-input>
+
+      <ion-button expand="block" (click)="saveTask()" class="btn">
+        Salvar
+      </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

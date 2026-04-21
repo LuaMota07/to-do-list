@@ -1,0 +1,19 @@
+.card {
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+}
+
+.quote {
+  font-style: italic;
+  text-align: center;
+}
+
+.buttons {
+  margin: 15px 0;
+}
+
+.done {
+  text-decoration: line-through;
+  color: gray;
+}

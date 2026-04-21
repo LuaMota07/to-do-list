@@ -1,0 +1,92 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>TaskFlow</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- 🌤️ CLIMA -->
+  <ion-card class="card" *ngIf="weather">
+    <ion-card-content>
+      <h2>🌤️ {{ weather.main?.temp }}°C</h2>
+      <p>{{ weather.weather[0]?.description }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- 💬 FRASE -->
+  <ion-card class="card" *ngIf="quote">
+    <ion-card-content>
+      <p class="quote">"{{ quote }}"</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- 🔘 BOTÕES -->
+  <div class="buttons">
+    <ion-button expand="block" routerLink="/add-task">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Nova tarefa
+    </ion-button>
+
+    <ion-button expand="block" fill="outline" routerLink="/schedule">
+      <ion-icon name="calendar" slot="start"></ion-icon>
+      Agenda
+    </ion-button>
+  </div>
+
+  <!-- 📋 LISTA -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Minhas tarefas</ion-card-title>
+    </ion-card-header>
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let task of tasks; let i = index">
+
+        <ion-item>
+
+          <!-- 📌 MODO NORMAL -->
+          <ion-label *ngIf="editingIndex !== i" [ngClass]="{'done': task.done}">
+            {{ task.title }}
+          </ion-label>
+
+          <!-- ✏️ MODO EDIÇÃO -->
+          <ion-input *ngIf="editingIndex === i"
+            [(ngModel)]="editedTitle">
+          </ion-input>
+
+          <!-- ✅ CHECK -->
+          <ion-checkbox 
+            slot="end"
+            [(ngModel)]="task.done"
+            (ionChange)="toggleTask(task)">
+          </ion-checkbox>
+
+          <!-- ✏️ EDITAR -->
+          <ion-button fill="clear" slot="end"
+            (click)="startEdit(task, i)"
+            *ngIf="editingIndex !== i">
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+
+          <!-- 💾 SALVAR -->
+          <ion-button fill="clear" slot="end"
+            (click)="saveEdit(i)"
+            *ngIf="editingIndex === i">
+            <ion-icon name="checkmark"></ion-icon>
+          </ion-button>
+
+        </ion-item>
+
+        <!-- 🗑️ DELETAR -->
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="deleteTask(i)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card>
+
+</ion-content>
