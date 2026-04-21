@@ -1,2 +1,21 @@
-*Takflow: to-do-list*
--TaskFlow helps organize daily activities simply and efficiently. Users can create, edit, delete, and complete tasks. It includes a weekly calendar for scheduling by day and time. The app integrates a weather API and stores data locally, ensuring persistence even after closing.
+📱 TaskFlow
+
+TaskFlow é um aplicativo desenvolvido com Ionic + Angular que tem como objetivo ajudar na organização de tarefas e compromissos do dia a dia de forma simples e eficiente.
+
+🚀 Funcionalidades
+✅ Criar tarefas
+✏️ Editar tarefas
+🗑️ Excluir tarefas
+✔️ Marcar como concluída
+📅 Agenda semanal editável
+🌤️ Exibição do clima (API)
+💬 Frase motivacional (API)
+💾 Armazenamento local (LocalStorage)
+🧠 Tecnologias utilizadas
+Ionic Framework
+Angular (Standalone Components)
+TypeScript
+HTML / SCSS
+APIs externas
+🌐 APIs utilizadas
+Clima: OpenWeatherMap
